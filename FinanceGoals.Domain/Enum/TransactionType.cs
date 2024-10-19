@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace FinanceGoals.Domain.Enum
 {
-    internal class TransactionType
+    public enum TransactionType
     {
+        Deposit = 1,
+        WithDraw = 2
     }
 }

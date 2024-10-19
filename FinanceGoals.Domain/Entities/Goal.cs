@@ -9,7 +9,7 @@ namespace FinanceGoals.Domain.Entities
 {
     public class Goal : Entity
     {
-        public Goal(string title, decimal targetAmount, DateTime? plannedStart, DateTime? plannedEnd)
+        public Goal(string title, decimal targetAmount, DateTime plannedStart, DateTime plannedEnd)
         {
             Title = title;
             TargetAmount = targetAmount;
@@ -21,9 +21,9 @@ namespace FinanceGoals.Domain.Entities
         public string Title { get; private set; }
         public decimal TargetAmount { get; private set; }
         public decimal TotalAmount { get; private set; }
-        public DateTime? PlannedStart { get; private set; }
+        public DateTime PlannedStart { get; private set; }
         public DateTime? StartedAt { get; private set; }
-        public DateTime? PlannedEnd { get; private set; }
+        public DateTime PlannedEnd { get; private set; }
         public DateTime? EndedAt { get; private set; }
         public GoalStatus Status { get; private set; }
 
