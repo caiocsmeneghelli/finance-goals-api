@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinanceGoals.Application.Goals.CreateGoal
+namespace FinanceGoals.Application.Commands.Goals.CreateGoal
 {
-    public class CreateGoalCommand : IRequest<int>
+    public class CreateGoalCommand : IRequest<Result>
     {
         public string Title { get; set; }
         public decimal TargetAmount { get; set; }

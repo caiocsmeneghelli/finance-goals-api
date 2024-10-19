@@ -1,4 +1,4 @@
-﻿using FinanceGoals.Application.Goals.CreateGoal;
+﻿using FinanceGoals.Application.Commands.Goals.CreateGoal;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

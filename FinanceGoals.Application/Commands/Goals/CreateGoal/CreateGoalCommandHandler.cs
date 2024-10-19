@@ -1,4 +1,5 @@
-﻿using FinanceGoals.Domain.Entities;
+﻿using FinanceGoals.Application.Commands.Goals.CreateGoal;
+using FinanceGoals.Domain.Entities;
 using FinanceGoals.Domain.UnitOfWork;
 using MediatR;
 using System;
@@ -7,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinanceGoals.Application.Goals.CreateGoal
+namespace FinanceGoals.Application.Commands.Goals.CreateGoal
 {
-    public class CreateGoalCommandHandler : IRequestHandler<CreateGoalCommand, int>
+    public class CreateGoalCommandHandler : IRequestHandler<CreateGoalCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -18,7 +19,7 @@ namespace FinanceGoals.Application.Goals.CreateGoal
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<int> Handle(CreateGoalCommand request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(CreateGoalCommand request, CancellationToken cancellationToken)
         {
             // Validate
 
@@ -29,8 +30,7 @@ namespace FinanceGoals.Application.Goals.CreateGoal
             await _unitOfWork.Goals.CreateAsync(goal);
             await _unitOfWork.CompleteAsync();
 
-            // FIX
-            return 1;
+            return Result.Success();
         }
     }
 }
