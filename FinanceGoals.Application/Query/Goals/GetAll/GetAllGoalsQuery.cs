@@ -1,15 +1,14 @@
 ﻿using FinanceGoals.Domain.Entities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinanceGoals.Domain.Repositories
+namespace FinanceGoals.Application.Query.Goals.GetAll
 {
-    public interface IGoalRepository
+    public class GetAllGoalsQuery : IRequest<List<Goal>>
     {
-        Task CreateAsync(Goal goal);
-        Task<List<Goal>> GetAllAsync();
     }
 }
