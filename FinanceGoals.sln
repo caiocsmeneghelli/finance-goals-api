@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceGoals.API", "FinanceGoals.API\FinanceGoals.API.csproj", "{6EA02B89-7FDA-4AF7-90C7-B8FC03FD32B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.API", "FinanceGoals.API\FinanceGoals.API.csproj", "{6EA02B89-7FDA-4AF7-90C7-B8FC03FD32B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceGoals.Domain", "FinanceGoals.Domain\FinanceGoals.Domain.csproj", "{96DAC965-5AF9-4E9F-ABED-D8D4A2DC5B2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.Domain", "FinanceGoals.Domain\FinanceGoals.Domain.csproj", "{96DAC965-5AF9-4E9F-ABED-D8D4A2DC5B2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceGoals.Application", "FinanceGoals.Application\FinanceGoals.Application.csproj", "{B941F89C-D25D-4011-B3DB-C58F21E0C011}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.Application", "FinanceGoals.Application\FinanceGoals.Application.csproj", "{B941F89C-D25D-4011-B3DB-C58F21E0C011}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceGoals.Infrastructure", "FinanceGoals.Infrastructure\FinanceGoals.Infrastructure.csproj", "{3C066399-FB28-4604-A70B-3FD01A758F69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.Infrastructure", "FinanceGoals.Infrastructure\FinanceGoals.Infrastructure.csproj", "{3C066399-FB28-4604-A70B-3FD01A758F69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceGoals.Tests", "FinanceGoals.Tests\FinanceGoals.Tests.csproj", "{F646287A-04D1-47AF-990D-6F58F17D1957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3C066399-FB28-4604-A70B-3FD01A758F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C066399-FB28-4604-A70B-3FD01A758F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C066399-FB28-4604-A70B-3FD01A758F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F646287A-04D1-47AF-990D-6F58F17D1957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F646287A-04D1-47AF-990D-6F58F17D1957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F646287A-04D1-47AF-990D-6F58F17D1957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F646287A-04D1-47AF-990D-6F58F17D1957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,5 +11,6 @@ namespace FinanceGoals.Domain.Repositories
     {
         Task CreateAsync(Goal goal);
         Task<List<Goal>> GetAllAsync();
+        Task<Goal?> GetByIdAsync(Guid guid);
     }
 }
