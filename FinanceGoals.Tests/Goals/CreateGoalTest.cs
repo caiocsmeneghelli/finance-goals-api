@@ -35,13 +35,7 @@ namespace FinanceGoals.Tests.Goals
                 .GetAwaiter();
 
             // Act
-            var command = new CreateGoalCommand()
-            {
-                Title = "Kawasaki Ninja 400",
-                PlannedStart = new DateTime(2024, 11, 01),
-                PlannedEnd = new DateTime(2026, 11, 01),
-                TargetAmount = 34.000m
-            };
+            var command = new CreateGoalCommand("Kawasaki", 34.000m, new DateTime(2024, 11, 01), new DateTime(2026, 11, 01));
 
             var handler = new CreateGoalCommandHandler(_unitOfWork);
             var result = await handler.Handle(command, CancellationToken.None);
@@ -49,6 +43,26 @@ namespace FinanceGoals.Tests.Goals
 
             // Assert
             Assert.True(result.IsSuccess);
+        }
+
+        [Fact]
+        public async void HandlerShouldReturnFalse()
+        {
+            // Arrange
+            _unitOfWork
+                .Goals
+                .GetByIdAsync(Arg.Any<Guid>())
+                .GetAwaiter();
+
+            // Act
+            var command = new CreateGoalCommand(string.Empty, 34.000m, new DateTime(2024, 11, 01), new DateTime(2026, 11, 01));
+            
+            var handler = new CreateGoalCommandHandler(_unitOfWork);
+            var result = await handler.Handle(command, CancellationToken.None);
+
+
+            // Assert
+            Assert.False(result.IsSuccess);
         }
     }
 }

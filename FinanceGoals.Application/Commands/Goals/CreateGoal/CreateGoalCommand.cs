@@ -8,11 +8,16 @@ using System.Threading.Tasks;
 
 namespace FinanceGoals.Application.Commands.Goals.CreateGoal
 {
-    public class CreateGoalCommand : IRequest<Result>, Notifiable<Notification>
+    public class CreateGoalCommand : Notifiable<Notification>,IRequest<Result>
     {
-        public CreateGoalCommand()
+        public CreateGoalCommand(string title, decimal targetAmount, DateTime plannedStart, DateTime plannedEnd)
         {
-            AddNotifications(new Notification(this));
+            Title = title;
+            TargetAmount = targetAmount;
+            PlannedStart = plannedStart;
+            PlannedEnd = plannedEnd;
+
+            AddNotifications(new CreateGoalCommandNotification(this));
         }
 
         public string Title { get; set; }
