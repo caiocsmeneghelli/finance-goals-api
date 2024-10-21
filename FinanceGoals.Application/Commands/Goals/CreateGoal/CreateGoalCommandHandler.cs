@@ -22,6 +22,13 @@ namespace FinanceGoals.Application.Commands.Goals.CreateGoal
         public async Task<Result> Handle(CreateGoalCommand request, CancellationToken cancellationToken)
         {
             // Validate
+            if (!request.IsValid)
+            {
+                var notifications = request.Notifications;
+                List<string> messages = notifications
+                    .Select(reg => $"{reg.Key}: {reg.Message}").ToList();
+                return Result.BadRequest(messages);
+            }
 
             // AutoMapper
             Goal goal = new Goal(request.Title, request.TargetAmount,
