@@ -10,6 +10,7 @@ namespace FinanceGoals.Domain.UnitOfWork
     public interface IUnitOfWork
     {
         IGoalRepository Goals { get; }
+        ITransactionRepository Transactions { get; }
 
         Task<int> CompleteAsync();
         Task BeginTransaction();
