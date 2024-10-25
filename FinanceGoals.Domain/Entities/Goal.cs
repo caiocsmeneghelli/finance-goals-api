@@ -16,6 +16,7 @@ namespace FinanceGoals.Domain.Entities
             PlannedStart = plannedStart;
             PlannedEnd = plannedEnd;
             Status = GoalStatus.OnHold;
+            Transactions = new List<Transaction>();
         }
 
         public string Title { get; private set; }
@@ -26,6 +27,7 @@ namespace FinanceGoals.Domain.Entities
         public DateTime PlannedEnd { get; private set; }
         public DateTime? EndedAt { get; private set; }
         public GoalStatus Status { get; private set; }
+        public List<Transaction> Transactions { get; private set; }
 
         public void Deposit(decimal amount)
         {
