@@ -14,7 +14,7 @@ namespace FinanceGoals.Application.Commands.Goals.Deposit
         {
             Requires()
                 .IsNotNullOrEmpty(request.GoalGuid.ToString(), "GoalGuid", "Guid não pode ser vazio.")
-                .IsGreaterThan(request.Amount, 0, "Amount", "Valor Amount não pode ser 0 ou negativo.");
+                .IsGreaterThan(request.Amount, 0, "Amount", "Valor não pode ser 0 ou negativo.");
         }
     }
 }

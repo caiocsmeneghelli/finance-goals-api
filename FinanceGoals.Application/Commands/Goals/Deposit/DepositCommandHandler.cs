@@ -32,7 +32,7 @@ namespace FinanceGoals.Application.Commands.Goals.Deposit
             Goal? goal = await _unitOfWork.Goals.GetByIdAsync(request.GoalGuid);
             if(goal is null)
             {
-                return Result.NotFound("Goal não foi encontrado.");
+                return Result.NotFound("O Objetivo Financeiro não foi encontrado.");
             }
 
             await _unitOfWork.BeginTransaction();
