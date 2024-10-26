@@ -1,6 +1,7 @@
 ﻿using FinanceGoals.Application;
 using FinanceGoals.Application.Commands.Goals.CreateGoal;
 using FinanceGoals.Application.Commands.Goals.Deposit;
+using FinanceGoals.Application.Commands.Goals.Withdraw;
 using FinanceGoals.Application.Query.Goals.GetAll;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -44,6 +45,24 @@ namespace FinanceGoals.API.Controllers
             if (!result.IsSuccess)
             {
                 if(result.StatusCode == (int)HttpStatusCode.NotFound)
+                {
+                    return NotFound(result.Messages);
+                }
+                return BadRequest(result.Messages);
+            }
+
+            return Ok(result);
+        }
+
+        [HttpPut("withdraw/{guid}")]
+        public async Task<IActionResult> Withdraw(Guid guid, [FromBody]decimal amount)
+        {
+            WithdrawCommand command = new WithdrawCommand(guid, amount);
+            Result result = await _mediatr.Send(command);
+
+            if (!result.IsSuccess)
+            {
+                if (result.StatusCode == (int)HttpStatusCode.NotFound)
                 {
                     return NotFound(result.Messages);
                 }
