@@ -17,6 +17,7 @@ namespace FinanceGoals.Domain.Entities
         }
 
         public Guid GoalGuid { get; private set; }
+        public Goal Goal { get; private set; }
         public TransactionType TransactionType { get; private set; }
         public decimal Amount { get; private set; }
     }
