@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.API", "FinanceGoals.API\FinanceGoals.API.csproj", "{6EA02B89-7FDA-4AF7-90C7-B8FC03FD32B0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3C066399-FB28-4604-A70B-3FD01A758F69} = {3C066399-FB28-4604-A70B-3FD01A758F69}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.Domain", "FinanceGoals.Domain\FinanceGoals.Domain.csproj", "{96DAC965-5AF9-4E9F-ABED-D8D4A2DC5B2A}"
 EndProject
@@ -11,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.Infrastructure", "FinanceGoals.Infrastructure\FinanceGoals.Infrastructure.csproj", "{3C066399-FB28-4604-A70B-3FD01A758F69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceGoals.Tests", "FinanceGoals.Tests\FinanceGoals.Tests.csproj", "{F646287A-04D1-47AF-990D-6F58F17D1957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceGoals.Tests", "FinanceGoals.Tests\FinanceGoals.Tests.csproj", "{F646287A-04D1-47AF-990D-6F58F17D1957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
