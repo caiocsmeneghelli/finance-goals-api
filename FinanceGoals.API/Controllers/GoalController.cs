@@ -3,6 +3,7 @@ using FinanceGoals.Application.Commands.Goals.CreateGoal;
 using FinanceGoals.Application.Commands.Goals.Deposit;
 using FinanceGoals.Application.Commands.Goals.Withdraw;
 using FinanceGoals.Application.Query.Goals.GetAll;
+using FinanceGoals.Application.Query.Goals.GetAllTransaction;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +68,20 @@ namespace FinanceGoals.API.Controllers
                     return NotFound(result.Messages);
                 }
                 return BadRequest(result.Messages);
+            }
+
+            return Ok(result);
+        }
+
+        [HttpGet("transactions/{goalGuid}")]
+        public async Task<IActionResult> ListTransaction(Guid goalGuid)
+        {
+            GetAllTransactionQuery query = new GetAllTransactionQuery(goalGuid);
+            Result result = await _mediatr.Send(query);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound(result.Messages);
             }
 
             return Ok(result);
