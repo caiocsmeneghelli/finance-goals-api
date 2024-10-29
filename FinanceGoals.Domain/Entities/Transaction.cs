@@ -14,11 +14,13 @@ namespace FinanceGoals.Domain.Entities
             GoalGuid = goalGuid;
             TransactionType = transactionType;
             Amount = amount;
+            Date = DateTime.Now;
         }
 
         public Guid GoalGuid { get; private set; }
         public Goal Goal { get; private set; }
         public TransactionType TransactionType { get; private set; }
         public decimal Amount { get; private set; }
+        public DateTime Date { get; private set; }
     }
 }

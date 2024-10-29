@@ -26,13 +26,13 @@ namespace FinanceGoals.Infrastructure.Persistence.Repositories
         public async Task<List<Goal>> GetAllAsync()
         {
             return await _context.Goals
-                .Include(reg => reg.Transactions)
                 .ToListAsync();
         }
 
         public async Task<Goal?> GetByIdAsync(Guid guid)
         {
             return await _context.Goals
+                .Include(reg => reg.Transactions)
                 .SingleOrDefaultAsync(reg => reg.Guid == guid);
         }
     }

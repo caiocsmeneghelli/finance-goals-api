@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace FinanceGoals.API.FinanceGoals.Infrastructure.Persistence.Migrations
+namespace FinanceGoals.Infrastructure.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class FirstMigration : Migration
@@ -42,7 +42,8 @@ namespace FinanceGoals.API.FinanceGoals.Infrastructure.Persistence.Migrations
                     Guid = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     GoalGuid = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     TransactionType = table.Column<int>(type: "int", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
+                    Amount = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {

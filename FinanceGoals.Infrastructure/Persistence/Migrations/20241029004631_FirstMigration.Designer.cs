@@ -4,16 +4,19 @@ using FinanceGoals.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FinanceGoals.API.FinanceGoals.Infrastructure.Persistence.Migrations
+namespace FinanceGoals.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(FinanceDbContext))]
-    partial class FinanceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241029004631_FirstMigration")]
+    partial class FirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,6 +69,9 @@ namespace FinanceGoals.API.FinanceGoals.Infrastructure.Persistence.Migrations
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(65,30)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("GoalGuid")
                         .HasColumnType("char(36)");

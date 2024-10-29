@@ -36,8 +36,7 @@ namespace FinanceGoals.Infrastructure
         {
             var connectionString = configuration.GetConnectionString("DbContextCs");
             var serverVersion = ServerVersion.AutoDetect(connectionString);
-            service.AddDbContext<FinanceDbContext>(options => options.UseMySql(connectionString, serverVersion,
-            b => b.MigrationsAssembly("FinanceGoals.API")));
+            service.AddDbContext<FinanceDbContext>(options => options.UseMySql(connectionString, serverVersion));
 
             return service;
         }

@@ -8,9 +8,9 @@ namespace FinanceGoals.Domain.Enum
 {
     public enum GoalStatus
     {
-        InProgress,
-        Completed,
-        Cancelled,
-        OnHold
+        InProgress = 1,
+        Completed = 2,
+        Cancelled = 3,
+        OnHold = 4
     }
 }

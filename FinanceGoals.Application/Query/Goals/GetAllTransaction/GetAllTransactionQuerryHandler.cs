@@ -1,4 +1,6 @@
-﻿using FinanceGoals.Domain.Entities;
+﻿using AutoMapper;
+using FinanceGoals.Application.ViewModels;
+using FinanceGoals.Domain.Entities;
 using FinanceGoals.Domain.UnitOfWork;
 using MediatR;
 using System;
@@ -12,10 +14,12 @@ namespace FinanceGoals.Application.Query.Goals.GetAllTransaction
     public class GetAllTransactionQuerryHandler : IRequestHandler<GetAllTransactionQuery, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public GetAllTransactionQuerryHandler(IUnitOfWork unitOfWork)
+        public GetAllTransactionQuerryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<Result> Handle(GetAllTransactionQuery request, CancellationToken cancellationToken)
@@ -26,7 +30,9 @@ namespace FinanceGoals.Application.Query.Goals.GetAllTransaction
                 return Result.NotFound("Objetivo Financeiro não encontrado.");
             }
 
-            return Result.Success(goal.Transactions);
+            List<TransactionViewModel> result = _mapper.Map<List<Transaction>, List<TransactionViewModel>>(goal.Transactions);
+
+            return Result.Success(result);
         }
     }
 }
