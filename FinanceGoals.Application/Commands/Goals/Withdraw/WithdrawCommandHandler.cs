@@ -44,7 +44,7 @@ namespace FinanceGoals.Application.Commands.Goals.Withdraw
 
             await _unitOfWork.CommitAsync();
 
-            return Result.Success();
+            return Result.Success($"Realizado a retirada de {request.Amount.ToString("C")}");
         }
     }
 }

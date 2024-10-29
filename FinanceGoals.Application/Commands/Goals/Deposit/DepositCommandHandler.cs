@@ -46,7 +46,7 @@ namespace FinanceGoals.Application.Commands.Goals.Deposit
 
             await _unitOfWork.CommitAsync();
 
-            return Result.Success();
+            return Result.Success($"Realizado o deposito de {request.Amount.ToString("C")}");
         }
     }
 }

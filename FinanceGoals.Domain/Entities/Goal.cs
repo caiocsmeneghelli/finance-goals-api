@@ -1,6 +1,7 @@
 ﻿using FinanceGoals.Domain.Enum;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,11 @@ namespace FinanceGoals.Domain.Entities
         }
 
         public string Title { get; private set; }
+        
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal TargetAmount { get; private set; }
+
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal TotalAmount { get; private set; }
         public DateTime PlannedStart { get; private set; }
         public DateTime? StartedAt { get; private set; }

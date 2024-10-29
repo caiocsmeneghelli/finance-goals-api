@@ -40,9 +40,9 @@ namespace FinanceGoals.API.Controllers
         }
 
         [HttpPut("deposit/{guid}")]
-        public async Task<IActionResult> Deposit(Guid guid, [FromBody]decimal amount)
+        public async Task<IActionResult> Deposit(Guid guid, DepositCommand command)
         {
-            DepositCommand command = new DepositCommand(guid, amount);
+            command.GoalGuid = guid;
             Result result = await _mediatr.Send(command);
             if (!result.IsSuccess)
             {
@@ -57,9 +57,9 @@ namespace FinanceGoals.API.Controllers
         }
 
         [HttpPut("withdraw/{guid}")]
-        public async Task<IActionResult> Withdraw(Guid guid, [FromBody]decimal amount)
+        public async Task<IActionResult> Withdraw(Guid guid, WithdrawCommand command)
         {
-            WithdrawCommand command = new WithdrawCommand(guid, amount);
+            command.GoalGuid = guid;
             Result result = await _mediatr.Send(command);
 
             if (!result.IsSuccess)
