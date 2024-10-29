@@ -10,7 +10,7 @@ namespace FinanceGoals.Application
     {
         public bool IsSuccess { get; private set; }
         public int StatusCode { get; private set; }
-        public object Data { get; set; }
+        public object Data { get; private set; }
         public List<string> Messages { get; private set; }
 
         public static Result Success() => new Result { IsSuccess = true, StatusCode = 200, Messages = new List<string>() };

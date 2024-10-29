@@ -37,7 +37,7 @@ namespace FinanceGoals.Application.Commands.Goals.CreateGoal
             await _unitOfWork.Goals.CreateAsync(goal);
             await _unitOfWork.CompleteAsync();
 
-            return Result.Success();
+            return Result.Success($"Realizado a inclusão do Objetivo Financeiro {goal.Title}.");
         }
     }
 }

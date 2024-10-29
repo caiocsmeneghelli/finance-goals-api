@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FinanceGoals.Application.Query.Goals.GetAll
 {
-    public class GetAllGoalsQueryHandler : IRequestHandler<GetAllGoalsQuery, List<Goal>>
+    public class GetAllGoalsQueryHandler : IRequestHandler<GetAllGoalsQuery, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -18,9 +18,10 @@ namespace FinanceGoals.Application.Query.Goals.GetAll
             _unitOfWork = unitOfWork;
         }
 
-        public Task<List<Goal>> Handle(GetAllGoalsQuery request, CancellationToken cancellationToken)
+        public async Task<Result> Handle(GetAllGoalsQuery request, CancellationToken cancellationToken)
         {
-            return _unitOfWork.Goals.GetAllAsync();
+            List<Goal> result = await _unitOfWork.Goals.GetAllAsync();
+            return Result.Success(result);
         }
     }
 }

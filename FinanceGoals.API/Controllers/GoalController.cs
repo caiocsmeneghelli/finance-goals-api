@@ -25,8 +25,9 @@ namespace FinanceGoals.API.Controllers
         [HttpPost("")]
         public async Task<IActionResult> Create(CreateGoalCommand command)
         {
+            // Alterar para Created
             var result = await _mediatr.Send(command);
-            return Created();
+            return Ok(result);
         }
 
         [HttpGet("")]
@@ -47,9 +48,9 @@ namespace FinanceGoals.API.Controllers
             {
                 if(result.StatusCode == (int)HttpStatusCode.NotFound)
                 {
-                    return NotFound(result.Messages);
+                    return NotFound(result);
                 }
-                return BadRequest(result.Messages);
+                return BadRequest(result);
             }
 
             return Ok(result);
@@ -65,9 +66,9 @@ namespace FinanceGoals.API.Controllers
             {
                 if (result.StatusCode == (int)HttpStatusCode.NotFound)
                 {
-                    return NotFound(result.Messages);
+                    return NotFound(result);
                 }
-                return BadRequest(result.Messages);
+                return BadRequest(result);
             }
 
             return Ok(result);
@@ -81,7 +82,7 @@ namespace FinanceGoals.API.Controllers
 
             if (!result.IsSuccess)
             {
-                return NotFound(result.Messages);
+                return NotFound(result);
             }
 
             return Ok(result);

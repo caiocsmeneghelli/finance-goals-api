@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinanceGoals.Application.Query.Goals.GetAll
 {
-    public class GetAllGoalsQuery : IRequest<List<Goal>>
+    public class GetAllGoalsQuery : IRequest<Result>
     {
     }
 }
