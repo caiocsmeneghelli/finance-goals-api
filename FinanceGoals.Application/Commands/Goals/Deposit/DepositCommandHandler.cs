@@ -20,7 +20,7 @@ namespace FinanceGoals.Application.Commands.Goals.Deposit
 
         public async Task<Result> Handle(DepositCommand request, CancellationToken cancellationToken)
         {
-            // Validate
+            request.Validate();
             if (!request.IsValid)
             {
                 var notifications = request.Notifications;

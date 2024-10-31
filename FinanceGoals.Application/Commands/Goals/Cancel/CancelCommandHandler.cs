@@ -20,7 +20,7 @@ namespace FinanceGoals.Application.Commands.Goals.Cancel
 
         public async Task<Result> Handle(CancelCommand request, CancellationToken cancellationToken)
         {
-            if (request.GuidGoal == Guid.Empty) { return Result.BadRequest("Guid não pode ser vazio."); }
+            if (request.GuidGoal.ToString() == String.Empty) { return Result.BadRequest("Guid não pode ser vazio."); }
 
             Goal? goal = await _unitOfWork.Goals.GetByIdAsync(request.GuidGoal);
             if (goal is null) { return Result.NotFound("Objetivo financeiro não encontrado."); }
