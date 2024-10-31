@@ -31,7 +31,9 @@ namespace FinanceGoals.Tests.Goals
                 .Returns(Task.FromResult<Goal?>(goal));
 
             // Act
-            var command = new DepositCommand(new Guid(), 320m);
+            var command = new DepositCommand();
+            command.GoalGuid = new Guid();
+            command.Amount = 320m;
             var handler = new DepositCommandHandler(_unitOfWork);
 
             var result = await handler.Handle(command, CancellationToken.None);
@@ -50,7 +52,7 @@ namespace FinanceGoals.Tests.Goals
                 .GetAwaiter();
 
             // Act
-            var command = new DepositCommand(new Guid(), 320m);
+            var command = new DepositCommand() { GoalGuid = new Guid(), Amount = 320m };
             var handler = new DepositCommandHandler(_unitOfWork);
 
             var result = await handler.Handle(command, CancellationToken.None);
@@ -70,7 +72,7 @@ namespace FinanceGoals.Tests.Goals
                 .Returns(Task.FromResult<Goal?>(goal));
 
             // Act
-            var command = new DepositCommand(new Guid(), -320m);
+            var command = new DepositCommand() { GoalGuid = new Guid(), Amount = -320m };
             var handler = new DepositCommandHandler(_unitOfWork);
 
             var result = await handler.Handle(command, CancellationToken.None);

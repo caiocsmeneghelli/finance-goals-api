@@ -38,7 +38,7 @@ namespace FinanceGoals.Tests.Goals
                 .Returns(Task.FromResult<Goal?>(goal));
 
             // Act
-            var command = new WithdrawCommand(new Guid(), 320m);
+            var command = new WithdrawCommand() { GoalGuid = new Guid(), Amount = 320m };
             var handler = new WithdrawCommandHandler(_unitOfWork);
 
             var result = await handler.Handle(command, CancellationToken.None);
@@ -59,7 +59,7 @@ namespace FinanceGoals.Tests.Goals
                 .Returns(Task.FromResult<Goal?>(goal));
 
             // Act
-            var command = new WithdrawCommand(new Guid(), 320m);
+            var command = new WithdrawCommand() { GoalGuid = new Guid(), Amount = 320m };
             var handler = new WithdrawCommandHandler(_unitOfWork);
 
             var result = await handler.Handle(command, CancellationToken.None);

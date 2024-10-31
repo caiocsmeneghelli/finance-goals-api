@@ -1,4 +1,5 @@
 ﻿using FinanceGoals.Application;
+using FinanceGoals.Application.Commands.Goals.Cancel;
 using FinanceGoals.Application.Commands.Goals.CreateGoal;
 using FinanceGoals.Application.Commands.Goals.Deposit;
 using FinanceGoals.Application.Commands.Goals.Withdraw;
@@ -46,7 +47,7 @@ namespace FinanceGoals.API.Controllers
             Result result = await _mediatr.Send(command);
             if (!result.IsSuccess)
             {
-                if(result.StatusCode == (int)HttpStatusCode.NotFound)
+                if (result.StatusCode == (int)HttpStatusCode.NotFound)
                 {
                     return NotFound(result);
                 }
@@ -83,6 +84,21 @@ namespace FinanceGoals.API.Controllers
             if (!result.IsSuccess)
             {
                 return NotFound(result);
+            }
+
+            return Ok(result);
+        }
+
+        [HttpPut("cancel/{goalGuid}")]
+        public async Task<IActionResult> Cancel(Guid goalGuid)
+        {
+            var command = new CancelCommand(goalGuid);
+            Result result = await _mediatr.Send(command);
+
+            if (!result.IsSuccess)
+            {
+                if (result.StatusCode == (int)HttpStatusCode.BadRequest) { return BadRequest(result); }
+                if (result.StatusCode == (int)HttpStatusCode.NotFound) { return NotFound(result); }
             }
 
             return Ok(result);
